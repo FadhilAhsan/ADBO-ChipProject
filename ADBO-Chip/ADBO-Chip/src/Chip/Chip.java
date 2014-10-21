@@ -14,6 +14,24 @@ public class Chip {
     
     public Chip()
     {
-        
+        this.row=0;
+        this.col=2;
+    }
+    
+    public void move(int direction){
+        switch (direction) {
+            case '2': this.row--; break;
+            case '4': this.col--; break;
+            case '6': this.col++; break;
+            case '8': this.row++; break;
+        }
+    }
+     
+    public int getRow(){
+        return row;
+    }
+    
+    public int getCol() {
+        return col;
     }
 }
