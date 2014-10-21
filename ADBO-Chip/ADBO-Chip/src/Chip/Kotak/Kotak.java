@@ -13,12 +13,12 @@ public abstract class Kotak {
     
     protected String[][] papan;
     
-    public Kotak(int size)
+    public Kotak()
     {
-        this.papan=new String[size][size];
+        this.papan=new String[9][9];
     }
     
-    public abstract boolean status();
+    public abstract boolean status(int row, int col);
     
     public abstract void isi();
     
