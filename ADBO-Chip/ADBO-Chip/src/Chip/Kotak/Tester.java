@@ -14,11 +14,8 @@ import java.util.Arrays;
  */
 public class Tester {
     public static void main(String[] args) {
-        Lantai k = new Lantai();
+        Kotak k = new Lantai();
         k.isi();
-        Addition a=new Addition(k);
-        a.copyPapan();
-        a.isi();
         k.printLantai();
         System.out.println();
         for(int i =0; i< k.papan.length;i++)
