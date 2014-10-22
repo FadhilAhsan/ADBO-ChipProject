@@ -15,25 +15,31 @@ public class Addition extends Kotak {
 
     protected int banyakIC;
     protected Lantai l;
+    private String[][] copyPapan;
     
-    public Addition() {
+    public Addition(Lantai lantai) {
         this.banyakIC = 10;
-        l=new Lantai();
+        this.l=lantai;
     }
     
     public void copyPapan()
     {
-        for(int i =0; i<l.papan.length;i++)
-        {
-            System.arraycopy(l.papan[i], 0, this.papan[i], 0, l.papan.length);
-        }
+        this.copyPapan=l.getPapan();
     }
 
+    /**
+     * W adalah finish.
+     * = adalah barrier.
+     * C adalah IC.
+     * @param row
+     * @param col
+     * @return 
+     */
     @Override
     public boolean status(int row, int col) {
         if (this.papan[row][col].equals("W")) {
             return true;
-        } else if (this.papan[row][col].equals("=")) {
+        } else if (this.copyPapan[row][col].equals("=")) {
             if (this.banyakIC == 0) {
                 return true;
             } else {
@@ -52,11 +58,11 @@ public class Addition extends Kotak {
     }
 
     private void isiFinish1() {
-        this.papan[0][4] = "W";
+        this.copyPapan[0][4] = "W";
     }
 
     private void isiBarrier1() {
-        this.papan[1][4] = "=";
+        this.copyPapan[1][4] = "=";
     }
 
     //still not working -> this.papan isinya null, harus copy papan yang dari kelas lantai.
@@ -67,8 +73,8 @@ public class Addition extends Kotak {
             Random randcol = new Random();
             int row = randrow.nextInt(8);
             int col = randcol.nextInt(8);
-            if (this.papan[row][col].equals("O")) {
-                this.papan[row][col]="C";
+            if (this.copyPapan[row][col].equals("O")) {
+                this.copyPapan[row][col]="C";
                 count++;
             }
         }
