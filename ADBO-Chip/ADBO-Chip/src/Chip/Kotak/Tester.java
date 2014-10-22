@@ -16,16 +16,10 @@ public class Tester {
     public static void main(String[] args) {
         Kotak k = new Lantai();
         k.isi();
-        k.printLantai();
-        System.out.println();
-        for(int i =0; i< k.papan.length;i++)
-        {
-            for(int j =0; j< k.papan.length;j++)
-            {
-                System.out.print(k.papan[i][j]);
-            }
-            System.out.println();
-        }      
+        Addition a = new Addition((Lantai) k);
+        a.copyPapan();
+        a.isi();
+        k.printLantai();     
        
     }
 }
