@@ -5,6 +5,7 @@
  */
 package Chip.Kotak;
 
+import Chip.Chip;
 import java.util.Random;
 
 /**
@@ -76,5 +77,10 @@ public class Addition extends Kotak {
     public String[][] getPapan()
     {
         return this.copyPapan;
+    }
+
+    @Override
+    public void updateLantai(Chip chip, int direction) {
+        //
     }
 }

@@ -17,9 +17,9 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
-        Kotak k = new Lantai();
+        Lantai k = new Lantai();
         k.isi();
-        Addition a = new Addition((Lantai) k);
+        Addition a = new Addition( k);
         a.copyPapan();
         a.isi();
         Chip me = new Chip(a);
@@ -27,7 +27,7 @@ public class Tester {
         {
             k.printLantai();
             int direction=sc.nextInt();
-            me.move(direction);
+            k.updateLantai(me, direction);
         }    
        
     }

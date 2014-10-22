@@ -1,5 +1,7 @@
 package Chip.Kotak;
 
+import Chip.Chip;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -35,4 +37,6 @@ public abstract class Kotak {
     }
     
     public abstract String[][] getPapan();
+    
+    public abstract void updateLantai(Chip chip,int direction);
 }

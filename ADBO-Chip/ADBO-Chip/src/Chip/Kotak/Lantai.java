@@ -6,6 +6,8 @@
 
 package Chip.Kotak;
 
+import Chip.Chip;
+
 /**
  *
  * @author asus
@@ -89,5 +91,12 @@ public class Lantai extends Kotak {
     public String[][] getPapan()
     {
         return this.papan;
+    }
+    
+    @Override
+    public void updateLantai(Chip chip,int direction){
+       this.papan[chip.getRow()][chip.getCol()]="0";
+       chip.move(direction);
+       this.papan[chip.getRow()][chip.getCol()]="?"; 
     }
 }

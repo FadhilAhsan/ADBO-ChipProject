@@ -28,24 +28,22 @@ public class Chip {
 
     public void move(int direction) {
         boolean temp = this.moveBoolean(direction);
-        if (temp == true) {
+        if (this.moveBoolean(direction)==true) {
             switch (direction) {
-                case '2':
-                    this.row--;
-                    break;
-                case '4':
-                    this.col--;
-                    break;
-                case '6':
-                    this.col++;
-                    break;
-                case '8':
+                case 2:
                     this.row++;
                     break;
+                case 4:
+                    this.col--;
+                    break;
+                case 6:
+                    this.col++;
+                    break;
+                case 8:
+                    this.row--;
+                    break;
             }
-        } else {
-
-        }
+        } 
     }
 
     public int getRow() {
@@ -56,51 +54,59 @@ public class Chip {
         return col;
     }
 
-    public boolean moveBoolean(int direction) {
+    private boolean moveBoolean(int direction) {
         boolean bool = true;
         if (direction == 2) {
             int simpan = this.getRow() + 1;
-            if (papanPermainan[simpan][col].equals("O")) {
-                bool = true;
-            } else if (papanPermainan[simpan][col].equals("X")) {
+            
+            if (simpan > papanPermainan.length-1) {
                 bool = false;
-            } else if (simpan > papanPermainan.length) {
-                bool = false;
-            } else {
-
             }
+            else {
+                if (papanPermainan[simpan][col].equals("O")) {
+                    bool = true;
+                } else if (papanPermainan[simpan][col].equals("X")) {
+                    bool = false;
+                }
+            }
+            
         } else if (direction == 8) {
             int simpan = this.getRow() - 1;
-            if (papanPermainan[simpan][col].equals("O")) {
-                bool = true;
-            } else if (papanPermainan[simpan][col].equals("X")) {
+            if (simpan < 0) {
                 bool = false;
-            } else if (simpan > papanPermainan.length) {
-                bool = false;
-            } else {
-
             }
+            else {
+                if (papanPermainan[simpan][col].equals("O")) {
+                    bool = true;
+                } else if (papanPermainan[simpan][col].equals("X")) {
+                    bool = false;
+                }
+            }
+            
         } else if (direction == 4) {
             int simpan = this.getCol() - 1;
-            if (papanPermainan[row][simpan].equals("O")) {
-                bool = true;
-            } else if (papanPermainan[row][simpan].equals("X")) {
+            if (simpan < 0) {
                 bool = false;
-            } else if (simpan > papanPermainan.length) {
-                bool = false;
-            } else {
-
             }
+            else {
+                if (papanPermainan[row][simpan].equals("O")) {
+                    bool = true;
+                } else if (papanPermainan[row][simpan].equals("X")) {
+                    bool = false;
+                }
+            }
+            
         } else {
             int simpan = this.getCol() + 1;
-            if (papanPermainan[row][simpan].equals("O")) {
-                bool = true;
-            } else if (papanPermainan[row][simpan].equals("X")) {
+            if (simpan > papanPermainan.length-1) {
                 bool = false;
-            } else if (simpan > papanPermainan.length) {
-                bool = false;
-            } else {
-
+            }
+            else {
+                if (papanPermainan[row][simpan].equals("O")) {
+                    bool = true;
+                } else if (papanPermainan[row][simpan].equals("X")) {
+                    bool = false;
+                }
             }
         }
         return bool;
