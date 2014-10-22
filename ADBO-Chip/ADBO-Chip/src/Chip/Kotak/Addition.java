@@ -31,10 +31,7 @@ public class Addition extends Kotak {
      * W adalah finish.
      * = adalah barrier.
      * C adalah IC.
-     * @param row
-     * @param col
-     * @return 
-     */
+    */
     @Override
     public boolean status(int row, int col) {
         if (this.papan[row][col].equals("W")) {
