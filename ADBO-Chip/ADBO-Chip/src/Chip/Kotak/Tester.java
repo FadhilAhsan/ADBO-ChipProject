@@ -6,20 +6,29 @@
 
 package Chip.Kotak;
 
+import Chip.Chip;
 import java.util.Arrays;
 
 /**
  *
  * @author asus
  */
+import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
         Kotak k = new Lantai();
         k.isi();
         Addition a = new Addition((Lantai) k);
         a.copyPapan();
         a.isi();
-        k.printLantai();     
+        Chip me = new Chip(a);
+        while(true)
+        {
+            k.printLantai();
+            int direction=sc.nextInt();
+            me.move(direction);
+        }    
        
     }
 }

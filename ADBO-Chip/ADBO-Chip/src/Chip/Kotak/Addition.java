@@ -71,4 +71,10 @@ public class Addition extends Kotak {
         }
         this.banyakIC=count;
     }
+    
+    @Override
+    public String[][] getPapan()
+    {
+        return this.copyPapan;
+    }
 }

@@ -33,4 +33,6 @@ public abstract class Kotak {
             System.out.println();
         }
     }
+    
+    public abstract String[][] getPapan();
 }
