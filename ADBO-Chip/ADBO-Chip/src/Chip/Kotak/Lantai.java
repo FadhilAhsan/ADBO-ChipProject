@@ -93,9 +93,19 @@ public class Lantai extends Kotak {
         return this.papan;
     }
     
+    public void setPapan(String input, int row, int col)
+    {
+        this.papan[row][col]=input;
+    }
+    
+    public void setPapan2(String[][] input)
+    {
+        this.papan=input;
+    }
+    
     @Override
     public void updateLantai(Chip chip,int direction){
-       this.papan[chip.getRow()][chip.getCol()]="0";
+       this.papan[chip.getRow()][chip.getCol()]="O";
        chip.move(direction);
        this.papan[chip.getRow()][chip.getCol()]="?"; 
     }

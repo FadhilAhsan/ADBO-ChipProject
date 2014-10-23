@@ -67,7 +67,7 @@ public class Chip {
                     bool = true;
                 } else if (papanPermainan[simpan][col].equals("X")) {
                     bool = false;
-                }
+                } 
             }
             
         } else if (direction == 8) {
@@ -80,6 +80,8 @@ public class Chip {
                     bool = true;
                 } else if (papanPermainan[simpan][col].equals("X")) {
                     bool = false;
+                } else if (papanPermainan[simpan][col].equals("=")) {
+                    bool=false;
                 }
             }
             

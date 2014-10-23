@@ -27,6 +27,7 @@ public class Tester {
         {
             k.printLantai();
             int direction=sc.nextInt();
+            a.updateLantai(me, direction);
             k.updateLantai(me, direction);
         }    
        
