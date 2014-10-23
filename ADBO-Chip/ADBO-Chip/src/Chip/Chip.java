@@ -9,7 +9,7 @@ import Chip.Kotak.*;
 /**
  *
  * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella
- * (2013730071)
+ * (2013730071).
  */
 public class Chip {
 
