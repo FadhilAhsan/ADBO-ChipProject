@@ -135,16 +135,23 @@ public class Addition extends Kotak {
         return bool;
     }
     
+    /**
+     * Kalau di random nanti kemungkinan muncul yang begini C nya ga bisa keambil, jadi Fire ga usah di random?
+     * C O ? X W X C O O 
+       C X O X = X O O O 
+       O X X X O X X O O 
+       O X C F O O X X O 
+       O X F O O O C O O 
+       O X X C O X X X O 
+       O O O O O X O X O 
+       O X X X O O O X X 
+       X O O O O X O O O 
+     */
      private void isiFire()
     {
-        for (int i = 0; i < this.banyakFire; i++) {
-            Random randrow = new Random();
-            Random randcol = new Random();
-            int row = randrow.nextInt(1)+3;
-            int col = randcol.nextInt(1)+2;
-            if (this.copyPapan[row][col].equals("O")) {
-                this.copyPapan[row][col] = "F";
-            }
-        }   
+       this.copyPapan[3][2]="F";
+       this.copyPapan[4][2]="F";
+       this.copyPapan[1][7]="F";
+       this.copyPapan[1][6]="F";
     }
 }

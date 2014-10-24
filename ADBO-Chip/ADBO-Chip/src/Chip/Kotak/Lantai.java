@@ -110,4 +110,22 @@ public class Lantai extends Kotak {
        chip.move(direction);
        this.papan[chip.getRow()][chip.getCol()]="?"; 
     }
+    
+    public boolean isFinished()
+    {
+        if(this.papan[0][4].equals("?"))
+        {
+            System.out.println("Anda memenangkan game ini !");
+            return true;
+            
+        } else if(this.papan[3][2].equals("?"))
+        {
+            System.out.println("Anda kalah :(");
+            return true;
+        } else if (this.papan[4][2].equals("?"))
+        {
+            System.out.println("Anda kalah :(");
+            return true;
+        } else return false;
+    }
 }

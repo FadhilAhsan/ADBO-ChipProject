@@ -24,17 +24,12 @@ public class Tester {
         a.copyPapan();
         a.isi();
         Chip me = new Chip(a);
-        boolean isFinish=false ;
-        while(isFinish==false)
+        while(k.isFinished()==false)
         {
             k.printLantai();
             int direction=sc.nextInt();
             a.updateLantai(me, direction);
-            k.updateLantai(me, direction);
-            if(k.getPapan()[0][4].equals("?")){
-                isFinish=true;
-            }           
+            k.updateLantai(me, direction);        
         }    
-        System.out.println("Anda memenangkan game ini !");
     }
 }
