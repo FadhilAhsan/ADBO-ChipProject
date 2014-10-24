@@ -32,9 +32,14 @@ public class Tester {
             a.updateLantai(me, direction);
             k.updateLantai(me, direction);
             if(k.getPapan()[0][4].equals("?")){
-                isFinish=true;
-            }           
+                System.out.println("Anda memenangkan game ini !");
+                break;
+            } else if(k.getPapan()[me.getRow()][me.getCol()].equals("F")) 
+            {
+                System.out.println("Anda Kalah :(");
+                break;
+            }
         }    
-        System.out.println("Anda memenangkan game ini !");
+        
     }
 }

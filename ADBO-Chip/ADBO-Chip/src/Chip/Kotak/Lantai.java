@@ -99,7 +99,7 @@ public class Lantai extends Kotak {
         this.papan[row][col]=input;
     }
     
-    public void setPapan2(String[][] input)
+    public void setPapan(String[][] input)
     {
         this.papan=input;
     }

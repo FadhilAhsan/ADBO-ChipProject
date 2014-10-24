@@ -82,7 +82,7 @@ public class Chip {
                     bool = false;
                 } else if (papanPermainan[simpan][col].equals("=")) {
                     bool=false;
-                }
+                } 
             }
             
         } else if (direction == 4) {
