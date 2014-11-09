@@ -14,6 +14,9 @@ import com.jtattoo.plaf.smart.SmartLookAndFeel;
 import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
 import java.io.IOException;
 import java.awt.Image;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.LineUnavailableException;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.synth.SynthLookAndFeel;
@@ -26,14 +29,17 @@ public class TesterWithImage extends JPanel{
     public static final int CANVAS_HEIGHT=60*9;   
     private Map<String , Image> imgFile;
     private Lantai l=new Lantai();
+    private Addition a= new Addition(l);
+    private Chip me;
+    private boolean isWin=false;
+    private String tempImg="F1";
 
     public TesterWithImage() {
         imgFile=new HashMap<String,Image>();
         l.isi();
-        Addition a = new Addition(l);
         a.copyPapan();
         a.isi();
-        Chip me = new Chip(a);
+        me = new Chip(a);
         Image img;
         img = Toolkit.getDefaultToolkit().getImage("Image/Floor/B2.png");
         if(img==null)
@@ -51,14 +57,84 @@ public class TesterWithImage extends JPanel{
                 imgFile.put("L1",img);
                 img=Toolkit.getDefaultToolkit().getImage("Image/Chocobo/R1.png");
                 imgFile.put("R1",img);
+                img=Toolkit.getDefaultToolkit().getImage("Image/Chocobo/B1.png");
+                imgFile.put("B1",img);
                 img=Toolkit.getDefaultToolkit().getImage("Image/3.gif");
                 imgFile.put("3",img);
 
         }
         setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
-
-        
+        Music.play();
+            setFocusable(true);
+            addKeyListener(new KeyAdapter() {
+              @Override
+              public void keyPressed(KeyEvent e) {
+                if (isWin==false) {
+                  switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT:
+                      formKeyPressed(e);
+                      break;
+                    case KeyEvent.VK_RIGHT:
+                      formKeyPressed(e);
+                      break;
+                    case KeyEvent.VK_DOWN:
+                      formKeyPressed(e);
+                      break;
+                    case KeyEvent.VK_UP:
+                      formKeyPressed(e);
+                      break;
+                  }
+                }
+              }
+            });    
     }
+    
+    
+     private void formKeyPressed(java.awt.event.KeyEvent evt) {                                
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_LEFT: 
+                left();
+                break;
+            case KeyEvent.VK_DOWN: 
+                down(); 
+                break;
+            case KeyEvent.VK_UP: 
+                up();
+                break;
+            case KeyEvent.VK_RIGHT: 
+                right();
+                break;
+        }
+    }
+    public void left(){
+        a.updateLantai(me, 4);
+        l.updateLantai(me, 4);
+        tempImg="L1";
+        repaint();
+    }
+    
+    public void right(){
+        a.updateLantai(me, 6);
+        l.updateLantai(me, 6);
+        tempImg="R1";
+        repaint();
+    }
+    
+    public void down(){
+        a.updateLantai(me, 2);
+        l.updateLantai(me, 2);
+        tempImg="F1";
+        repaint();
+    }
+    
+    public void up(){
+        a.updateLantai(me, 8);
+        l.updateLantai(me, 8); 
+        tempImg="B1";
+        repaint();
+    }
+    
+    @Override
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -73,7 +149,7 @@ public class TesterWithImage extends JPanel{
                     g.drawImage(imgFile.get("3"), j*60, i*60, null);
                 }
                 else if (l.getPapan()[i][j].equalsIgnoreCase("?")) {
-                    g.drawImage(imgFile.get("F1"), j*60, i*60, null);
+                    g.drawImage(imgFile.get(tempImg), j*60, i*60, null);
                 }
             }
         }
@@ -172,5 +248,7 @@ public class TesterWithImage extends JPanel{
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setResizable(false);
+
      }
 }
