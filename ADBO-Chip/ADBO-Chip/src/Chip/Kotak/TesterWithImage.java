@@ -4,17 +4,9 @@
  */
 package Chip.Kotak;
 import Chip.Chip;
-import com.jtattoo.plaf.luna.LunaLookAndFeel;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
 import javax.swing.*;
-import com.jtattoo.plaf.mcwin.McWinLookAndFeel;
-import com.jtattoo.plaf.smart.SmartLookAndFeel;
-import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-import javax.swing.plaf.synth.SynthLookAndFeel;
 /**
  *
  * @author Alphabeth
@@ -106,7 +98,6 @@ public class TesterWithImage extends JFrame{
     }
     
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(new McWinLookAndFeel());
         JFrame frame = new TesterWithImage();
         frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE );
         frame.pack();
