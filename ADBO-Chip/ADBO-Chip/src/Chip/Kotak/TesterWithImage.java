@@ -59,7 +59,9 @@ public class TesterWithImage extends JPanel{
                 imgFile.put("R1",img);
                 img=Toolkit.getDefaultToolkit().getImage("Image/Chocobo/B1.png");
                 imgFile.put("B1",img);
-                img=Toolkit.getDefaultToolkit().getImage("Image/3.gif");
+                img=Toolkit.getDefaultToolkit().getImage("Image/padi.png");
+                imgFile.put("padi",img);
+                img=Toolkit.getDefaultToolkit().getImage("Image/3.png");
                 imgFile.put("3",img);
 
         }
@@ -146,10 +148,12 @@ public class TesterWithImage extends JPanel{
                     g.drawImage(imgFile.get("W2"), j*60, i*60, null);
                 }
                 else if (l.getPapan()[i][j].equalsIgnoreCase("C")) {
-                    g.drawImage(imgFile.get("3"), j*60, i*60, null);
+                    g.drawImage(imgFile.get("padi"), j*60, i*60, null);
                 }
                 else if (l.getPapan()[i][j].equalsIgnoreCase("?")) {
                     g.drawImage(imgFile.get(tempImg), j*60, i*60, null);
+                } else if(l.getPapan()[i][j].equalsIgnoreCase("F")) {
+                    g.drawImage(imgFile.get("3"), j*60, i*60, null);
                 }
             }
         }
