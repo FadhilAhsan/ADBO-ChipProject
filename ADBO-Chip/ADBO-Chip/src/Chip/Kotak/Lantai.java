@@ -3,129 +3,134 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Chip.Kotak;
 
 import Chip.Chip;
 
 /**
  *
- * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella 
+ * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella
  * (2013730071).
  */
 public class Lantai extends Kotak {
 
     @Override
     public boolean status(int row, int col) {
-        if(this.papan[row][col].equals("O"))
-        {
+        if (this.papan[row][col].equals("O")) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void isi() {
-       this.isiLantaiKosong();
-       this.isiLantaiIsi1();
+        this.isiLantaiKosong();
+        this.isiLantaiIsi1();
     }
-    
-    private void isiLantaiKosong()
-    {
-        for(int i =0; i< this.papan.length;i++)
-       {
-           for(int j= 0; j<this.papan.length;j++)
-           {
-               this.papan[i][j]="O";
-           }
-       }
-    }
-    
-     /**
-     *  | O O O X O X O O O |
-     *  | O X O X O X O O O |   O lantai kosong
-     *  | O X X X O X X O O |   X lantai isi
-     *  | O X O O O O X X O |
-     *  | O X O O O O O O O |
-     *  | O X X O O X X X O |
-     *  | O O O O O X O X O |
-     *  | O X X X O O O X X |
-     *  | X O O O O X O O O |
-     */
-    private void isiLantaiIsi1()
-    {
-        for(int i =0; i< 3; i++)
-        {
-            this.papan[i][3]="X";
-            this.papan[i][5]="X";
-        }
-        this.papan[1][1]="X";
-        for(int j = 0; j< 9; j++)
-        {
-            if(j!=0 && j!=4 && j!=7 && j!=8)
-            {
-                this.papan[2][j]="X";
+
+    private void isiLantaiKosong() {
+        for (int i = 0; i < this.papan.length; i++) {
+            for (int j = 0; j < this.papan.length; j++) {
+                this.papan[i][j] = "O";
             }
         }
-        for(int k = 3; k< 6; k++)
-        {
-            this.papan[k][1]="X";
-        }
-        this.papan[5][2]="X";
-        this.papan[3][6]="X";
-        this.papan[3][7]="X";
-        for(int u = 5; u< 8; u++)
-        {
-            this.papan[5][u]="X";
-        }
-        this.papan[6][5]="X";
-        this.papan[6][7]="X";
-        this.papan[7][7]="X";
-        this.papan[7][8]="X";
-        for(int o = 1; o<4 ; o++)
-        {
-            this.papan[7][o]="X";
-        }
-        this.papan[8][0]="X";
-        this.papan[8][5]="X";
     }
-  
-    public String[][] getPapan()
-    {
+
+    /**
+     * | O O O X O X O O O |
+     * | O X O X O X O O O | O lantai kosong | O X X X O X X O O | X lantai isi
+     * | O X O O O O X X O | | O X O O O O O O O | | O X X O O X X X O | | O O O
+     * O O X O X O | | O X X X O O O X X | | X O O O O X O O O |
+     */
+    private void isiLantaiIsi1() {
+        for (int i = 0; i < 3; i++) {
+            this.papan[i][3] = "X";
+            this.papan[i][5] = "X";
+        }
+        this.papan[1][1] = "X";
+        for (int j = 0; j < 9; j++) {
+            if (j != 0 && j != 4 && j != 7 && j != 8) {
+                this.papan[2][j] = "X";
+            }
+        }
+        for (int k = 3; k < 6; k++) {
+            this.papan[k][1] = "X";
+        }
+        this.papan[5][2] = "X";
+        this.papan[3][6] = "X";
+        this.papan[3][7] = "X";
+        for (int u = 5; u < 8; u++) {
+            this.papan[5][u] = "X";
+        }
+        this.papan[6][5] = "X";
+        this.papan[6][7] = "X";
+        this.papan[7][7] = "X";
+        this.papan[7][8] = "X";
+        for (int o = 1; o < 4; o++) {
+            this.papan[7][o] = "X";
+        }
+        this.papan[8][0] = "X";
+        this.papan[8][5] = "X";
+    }
+
+    public String[][] getPapan() {
         return this.papan;
     }
-    
-    public void setPapan(String input, int row, int col)
-    {
-        this.papan[row][col]=input;
+
+    public void setPapan(String input, int row, int col) {
+        this.papan[row][col] = input;
     }
-    
-    public void setPapan2(String[][] input)
-    {
-        this.papan=input;
+
+    public void setPapan2(String[][] input) {
+        this.papan = input;
     }
-    
+
     @Override
-    public void updateLantai(Chip chip,int direction){
-       this.papan[chip.getRow()][chip.getCol()]="O";
-       chip.move(direction);
-       this.papan[chip.getRow()][chip.getCol()]="?"; 
+    public void updateLantai(Chip chip, int direction) {
+        this.papan[chip.getRow()][chip.getCol()] = "O";
+        chip.move(direction);
+        this.papan[chip.getRow()][chip.getCol()] = "?";
     }
-    
-    public boolean isFinished()
-    {
-        if(this.papan[0][4].equals("?"))
-        {
+
+    public boolean isFinished(Chip chip) {
+        if (this.papan[0][4].equals("?")) {
             System.out.println("Anda memenangkan game ini !");
             return true;
+
+        } else if (this.papan[3][2].equals("?")) {
+            if (chip.getStatusApi() == false) {
+                System.out.println("Anda kalah :(");
+                return true;
+            } else {
+                return false;
+            }
+        } else if (this.papan[4][2].equals("?")) {
+            if (chip.getStatusApi() == false) {
+                System.out.println("Anda kalah :(");
+                return true;
+            } else {
+                return false;
+            }
+        } else if (this.papan[3][5].equals("?")){
+            if(chip.getStatusAir()==false)
+            {
+                System.out.println("Anda kalah :(");
+                return true;
+            } else {
+                return false;
+            }
             
-        } else if(this.papan[3][2].equals("?"))
-        {
-            System.out.println("Anda kalah :(");
-            return true;
-        } else if (this.papan[4][2].equals("?"))
-        {
-            System.out.println("Anda kalah :(");
-            return true;
-        } else return false;
+        } else if (this.papan[2][7].equals("?")){
+            if(chip.getStatusAir()==false)
+            {
+                System.out.println("Anda kalah :(");
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }

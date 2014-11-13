@@ -16,13 +16,11 @@ import java.util.Random;
 public class Addition extends Kotak {
 
     protected int banyakIC;
-    protected int banyakFire;
     protected Lantai l;
     private String[][] copyPapan;
 
     public Addition(Lantai lantai) {
         this.banyakIC = 10;
-        this.banyakFire=2;
         this.l = lantai;
     }
 
@@ -51,6 +49,7 @@ public class Addition extends Kotak {
         this.isiBarrier1();
         this.isiIC();
         this.isiFire();
+        this.isiWater();
     }
 
     private void isiFinish1() {
@@ -151,7 +150,11 @@ public class Addition extends Kotak {
     {
        this.copyPapan[3][2]="F";
        this.copyPapan[4][2]="F";
-       this.copyPapan[1][7]="F";
-       this.copyPapan[1][6]="F";
     }
+     
+     private void isiWater()
+     {
+       this.copyPapan[3][5]="A";
+       this.copyPapan[2][7]="A";
+     }
 }

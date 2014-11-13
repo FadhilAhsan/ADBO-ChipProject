@@ -6,7 +6,7 @@
 
 package Chip.Kotak;
 
-import Chip.Chip;
+import Chip.*;
 import java.util.Arrays;
 
 /**
@@ -24,12 +24,15 @@ public class Tester {
         a.copyPapan();
         a.isi();
         Chip me = new Chip(a);
-        while(k.isFinished()==false)
+        while(k.isFinished(me)==false)
         {
             k.printLantai();
             int direction=sc.nextInt();
             a.updateLantai(me, direction);
-            k.updateLantai(me, direction);        
+            k.updateLantai(me, direction);  
+            System.out.println("Pakai Sepatu? 1. Api 2. Air 3. Tidak :");
+            me.pasanglepasSepatu(sc.nextInt());
+            
         }    
     }
 }
