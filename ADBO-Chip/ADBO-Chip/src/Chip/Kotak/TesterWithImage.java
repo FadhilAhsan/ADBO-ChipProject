@@ -21,8 +21,9 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.synth.SynthLookAndFeel;
 /**
- *
- * @author Alphabeth
+ *Kelas tester untuk papan permainan
+ * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella 
+ * (2013730071).
  */
 public class TesterWithImage extends JPanel{
     public static final int CANVAS_WIDTH=60*9;

@@ -8,12 +8,18 @@ package Chip.Kotak;
 import Chip.Chip;
 
 /**
- *
+ * Kelas sub-class dari sebuah Kotak pada papan permainan
  * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella
  * (2013730071).
  */
 public class Lantai extends Kotak {
 
+    /**
+     * Method untuk mencek status lantai masih "o" (kosong) atau sudah terisi
+     * @param row baris pada papan permainan
+     * @param col column pada papan permainan
+     * @return true bila masih kosong dan false sebaliknya
+     */
     @Override
     public boolean status(int row, int col) {
         if (this.papan[row][col].equals("O")) {
@@ -23,12 +29,22 @@ public class Lantai extends Kotak {
         }
     }
 
+    /**
+     * Method untuk mengisi lantai pada papan permainan
+     * @param tidak ada
+     * @return tidak ada karena bertipe void
+     */
     @Override
     public void isi() {
         this.isiLantaiKosong();
         this.isiLantaiIsi1();
     }
 
+    /**
+     * Method untuk mencetak papah dengan lantai kosong yang diberi tanda string "o::
+     * @param tidak ada
+     * @return tidak ada karena bertipe void
+     */
     private void isiLantaiKosong() {
         for (int i = 0; i < this.papan.length; i++) {
             for (int j = 0; j < this.papan.length; j++) {
@@ -38,10 +54,9 @@ public class Lantai extends Kotak {
     }
 
     /**
-     * | O O O X O X O O O |
-     * | O X O X O X O O O | O lantai kosong | O X X X O X X O O | X lantai isi
-     * | O X O O O O X X O | | O X O O O O O O O | | O X X O O X X X O | | O O O
-     * O O X O X O | | O X X X O O O X X | | X O O O O X O O O |
+     * Method untuk mengisi lantai, bila "o" kosong dan  "x" sudah terisi
+     *@param tidak ada
+     * @return tidak ada karena bertipe void
      */
     private void isiLantaiIsi1() {
         for (int i = 0; i < 3; i++) {
@@ -74,18 +89,42 @@ public class Lantai extends Kotak {
         this.papan[8][5] = "X";
     }
 
+    /**
+     * Method getter dari papan permainan dan bertipe array 2 dimensi
+     * @param tidak ada
+     * @return papan 
+     */
     public String[][] getPapan() {
         return this.papan;
     }
 
+    /**
+     * Method setter pada papan permainan
+     * @param input berupa elemen maupun chip
+     * @param row baris pada papan permainan
+     * @param col column pada papan permainan
+     * @return tidak ada karena bertipe void
+     */
     public void setPapan(String input, int row, int col) {
         this.papan[row][col] = input;
     }
 
+    /**
+     * Method untuk menset papan permainan
+     * @param input berupa array 2 dimensi
+     * @return tidak ada karena bertipe void
+     */
     public void setPapan2(String[][] input) {
         this.papan = input;
     }
 
+    /**
+     * Method untuk mengupdate isi lantai dan chip
+     * Bila kosong akan diberi tanda "o" dan chip sebagai "?"
+     * @param chip
+     * @param direction arah dari chip
+     * @return tidak ada karena bertipe void
+     */
     @Override
     public void updateLantai(Chip chip, int direction) {
         this.papan[chip.getRow()][chip.getCol()] = "O";
@@ -93,6 +132,11 @@ public class Lantai extends Kotak {
         this.papan[chip.getRow()][chip.getCol()] = "?";
     }
 
+    /**
+     * Method untuk mengetahui apapkah chip telah menang atau tidak
+     * @param chip
+     * @return true bile telah memenangkan game dan false bila sebaliknya
+     */
     public boolean isFinished(Chip chip) {
         if (this.papan[0][4].equals("?")) {
             System.out.println("Anda memenangkan game ini !");

@@ -12,8 +12,9 @@ import java.net.URL;
 import javazoom.jl.player.Player;
 
 /**
- *
- * @author Alphabeth
+ * Kelas music bagi papan permainan 
+ * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella 
+ * (2013730071).
  */
 public class Music {
    private static String filename;

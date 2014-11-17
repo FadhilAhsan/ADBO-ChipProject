@@ -7,19 +7,19 @@ package Chip;
 import Chip.Kotak.*;
 
 /**
- *
+ * Kelas yang merepresentasikan chip pada game
  * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella
  * (2013730071).
  */
 public class Chip {
 
-    protected int row;
-    protected int col;
-    protected Addition add;
-    protected String[][] papanPermainan;
-    protected Sepatu sep;
-    protected boolean statusSepatuApi;
-    protected boolean statusSepatuAir;
+    protected int row;  // posisi chip pada baris tertentu
+    protected int col;  // posisi chip pada kolom tertentu
+    protected Addition add; // attribut untuk menambahkan chip
+    protected String[][] papanPermainan; // attribut merepresentasikan papan permainan pada game
+    protected Sepatu sep; // attribut elemen sepatu 
+    protected boolean statusSepatuApi; // attribut untuk mengecek status sepatu Api
+    protected boolean statusSepatuAir; // attribut untuk mengecek status sepatu Air
 
     public Chip(Addition add) {
         this.row = 0;
@@ -29,6 +29,11 @@ public class Chip {
         this.papanPermainan[row][col] = "?";
     }
 
+    /**
+     * Method untuk menentukan arah gerak sebuah chip
+     * @param direction , 2 akan turun, 4 akan ke kiri, 6 ke kanan, 8 akan naik
+     * @return tidak ada nilai kembalian
+     */
     public void move(int direction) {
         boolean temp = this.moveBoolean(direction);
         if (this.moveBoolean(direction) == true) {
@@ -49,14 +54,30 @@ public class Chip {
         }
     }
 
+    /**
+     * Method untuk getter dari posisi row chip
+     * @param : tidak ada
+     * @return row
+     */
     public int getRow() {
         return row;
     }
 
+    /**
+     * Method untuk getter dari posisi column chip
+     * @param tidak ada
+     * @return col
+     */
     public int getCol() {
         return col;
     }
 
+    /**
+     * Method untuk memperoleh status pergerakan chip, bila papan masih ada tempat dan kotak papan belum terisi apapun
+     * 
+     * @param direction 
+     * @return bool ,status chip
+     */
     private boolean moveBoolean(int direction) {
         boolean bool = true;
         if (direction == 2) {
@@ -113,6 +134,11 @@ public class Chip {
         return bool;
     }
 
+    /**
+     * Method untuk mengimplementasi sepatu
+     * @param masukan , bila 1 akan dimasukan sepatuApi dan 2 akan dimasukan sepatuAir
+     * @return tidak ada nilai kembalian
+     */
     public void pasanglepasSepatu(int masukan) {
         if (masukan == 1) {
             this.sep = new SepatuApi();
@@ -130,10 +156,20 @@ public class Chip {
         }
     }
 
+    /**
+     * Method getter status sepatu Api
+     *@param tidak ada 
+     * @return statusSepatuApi
+     */
     public boolean getStatusApi() {
         return this.statusSepatuApi;
     }
 
+    /**
+     * Method untuk memperoleh status sepatu Air
+     * @param tidak ada
+     * @return statusSepatuAir
+     */
     public boolean getStatusAir() {
         return this.statusSepatuAir;
     }
