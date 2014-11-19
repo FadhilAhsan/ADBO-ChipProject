@@ -29,7 +29,7 @@ public class TesterWithImage extends JPanel{
     public static final int CANVAS_WIDTH=60*9;
     public static final int CANVAS_HEIGHT=60*9;   
     private Map<String , Image> imgFile;
-    private Lantai l=new Lantai();
+    private LantaiIsi l=new LantaiIsi();
     private Addition a= new Addition(l);
     private Chip me;
     private boolean isWin=false;
