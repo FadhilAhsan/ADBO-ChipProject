@@ -18,13 +18,13 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
-        Lantai k = new Lantai();
+        LantaiIsi k = new LantaiIsi();
         k.isi();
         Addition a = new Addition( k);
         a.copyPapan();
         a.isi();
         Chip me = new Chip(a);
-        while(k.isFinished(me)==false)
+        while(k.isFinished(me).equalsIgnoreCase("null"))
         {
             k.printLantai();
             int direction=sc.nextInt();
