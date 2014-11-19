@@ -8,7 +8,7 @@ package UI;
 
 import Chip.*;
 import Chip.Kotak.Addition;
-import Chip.Kotak.Lantai;
+import Chip.Kotak.LantaiIsi;
 import java.util.Arrays;
 
 /**
@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
-        Lantai k = new Lantai();
+        LantaiIsi k = new LantaiIsi();
         k.isi();
         Addition a = new Addition( k);
         a.copyPapan();

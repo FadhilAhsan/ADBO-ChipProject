@@ -6,23 +6,15 @@ package UI;
 
 import Chip.Chip;
 import Chip.Kotak.Addition;
-import Chip.Kotak.Lantai;
-import com.jtattoo.plaf.luna.LunaLookAndFeel;
+import Chip.Kotak.LantaiIsi;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import com.jtattoo.plaf.mcwin.McWinLookAndFeel;
-import com.jtattoo.plaf.smart.SmartLookAndFeel;
-import com.sun.java.swing.plaf.motif.MotifLookAndFeel;
 import java.io.IOException;
 import java.awt.Image;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.LineUnavailableException;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-import javax.swing.plaf.synth.SynthLookAndFeel;
+
 
 /**
  * Kelas tester untuk papan permainan
@@ -35,7 +27,7 @@ public class TesterWithImage extends JPanel {
     public static final int CANVAS_WIDTH = 59 * 9;
     public static final int CANVAS_HEIGHT = 59 * 9;
     private Map<String, Image> imgFile;
-    private Lantai l = new Lantai();
+    private LantaiIsi l = new LantaiIsi();
     private Addition a = new Addition(l);
     private Chip me;
     private boolean isWin = false;
