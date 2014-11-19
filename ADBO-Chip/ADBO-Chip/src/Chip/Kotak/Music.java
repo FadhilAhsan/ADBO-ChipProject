@@ -23,7 +23,7 @@ public class Music {
 public static void play() {
         try {
             URL url;
-            FileInputStream fis     = new FileInputStream("Sound/08.mp3");
+            FileInputStream fis     = new FileInputStream("Sound/01.mp3");
             BufferedInputStream bis = new BufferedInputStream(fis);
             player = new Player(bis);
         }

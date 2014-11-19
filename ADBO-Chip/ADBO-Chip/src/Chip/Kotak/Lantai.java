@@ -9,6 +9,7 @@ import Chip.Chip;
 
 /**
  * Kelas sub-class dari sebuah Kotak pada papan permainan
+ *
  * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella
  * (2013730071).
  */
@@ -16,6 +17,7 @@ public class Lantai extends Kotak {
 
     /**
      * Method untuk mencek status lantai masih "o" (kosong) atau sudah terisi
+     *
      * @param row baris pada papan permainan
      * @param col column pada papan permainan
      * @return true bila masih kosong dan false sebaliknya
@@ -31,6 +33,7 @@ public class Lantai extends Kotak {
 
     /**
      * Method untuk mengisi lantai pada papan permainan
+     *
      * @param tidak ada
      * @return tidak ada karena bertipe void
      */
@@ -41,7 +44,9 @@ public class Lantai extends Kotak {
     }
 
     /**
-     * Method untuk mencetak papah dengan lantai kosong yang diberi tanda string "o::
+     * Method untuk mencetak papah dengan lantai kosong yang diberi tanda string
+     * "o::
+     *
      * @param tidak ada
      * @return tidak ada karena bertipe void
      */
@@ -54,8 +59,9 @@ public class Lantai extends Kotak {
     }
 
     /**
-     * Method untuk mengisi lantai, bila "o" kosong dan  "x" sudah terisi
-     *@param tidak ada
+     * Method untuk mengisi lantai, bila "o" kosong dan "x" sudah terisi
+     *
+     * @param tidak ada
      * @return tidak ada karena bertipe void
      */
     private void isiLantaiIsi1() {
@@ -91,8 +97,9 @@ public class Lantai extends Kotak {
 
     /**
      * Method getter dari papan permainan dan bertipe array 2 dimensi
+     *
      * @param tidak ada
-     * @return papan 
+     * @return papan
      */
     public String[][] getPapan() {
         return this.papan;
@@ -100,6 +107,7 @@ public class Lantai extends Kotak {
 
     /**
      * Method setter pada papan permainan
+     *
      * @param input berupa elemen maupun chip
      * @param row baris pada papan permainan
      * @param col column pada papan permainan
@@ -111,6 +119,7 @@ public class Lantai extends Kotak {
 
     /**
      * Method untuk menset papan permainan
+     *
      * @param input berupa array 2 dimensi
      * @return tidak ada karena bertipe void
      */
@@ -119,8 +128,9 @@ public class Lantai extends Kotak {
     }
 
     /**
-     * Method untuk mengupdate isi lantai dan chip
-     * Bila kosong akan diberi tanda "o" dan chip sebagai "?"
+     * Method untuk mengupdate isi lantai dan chip Bila kosong akan diberi tanda
+     * "o" dan chip sebagai "?"
+     *
      * @param chip
      * @param direction arah dari chip
      * @return tidak ada karena bertipe void
@@ -134,47 +144,37 @@ public class Lantai extends Kotak {
 
     /**
      * Method untuk mengetahui apapkah chip telah menang atau tidak
+     *
      * @param chip
      * @return true bile telah memenangkan game dan false bila sebaliknya
      */
-    public boolean isFinished(Chip chip) {
+    public String isFinished(Chip chip) {
         if (this.papan[0][4].equals("?")) {
-            System.out.println("Anda memenangkan game ini !");
-            return true;
+            String temp = "WIN";
+            return temp;
 
         } else if (this.papan[3][2].equals("?")) {
             if (chip.getStatusApi() == false) {
-                System.out.println("Anda kalah :(");
-                return true;
-            } else {
-                return false;
+                String temp = "LOSE";
+                return temp;
             }
         } else if (this.papan[4][2].equals("?")) {
             if (chip.getStatusApi() == false) {
-                System.out.println("Anda kalah :(");
-                return true;
-            } else {
-                return false;
+                String temp = "LOSE";
+                return temp;
             }
-        } else if (this.papan[3][5].equals("?")){
-            if(chip.getStatusAir()==false)
-            {
-                System.out.println("Anda kalah :(");
-                return true;
-            } else {
-                return false;
+        } else if (this.papan[3][5].equals("?")) {
+            if (chip.getStatusAir() == false) {
+                String temp = "LOSE";
+                return temp;
             }
-            
-        } else if (this.papan[2][7].equals("?")){
-            if(chip.getStatusAir()==false)
-            {
-                System.out.println("Anda kalah :(");
-                return true;
-            } else {
-                return false;
+
+        } else if (this.papan[2][7].equals("?")) {
+            if (chip.getStatusAir() == false) {
+                String temp = "LOSE";
+                return temp;
             }
-        } else {
-            return false;
         }
+        return "null";
     }
 }
