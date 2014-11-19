@@ -40,6 +40,7 @@ public class Lantai extends Kotak {
     @Override
     public void isi() {
         this.isiLantaiKosong();
+        this.isiLantaiIsi1();
     }
 
     /**
@@ -49,7 +50,7 @@ public class Lantai extends Kotak {
      * @param tidak ada
      * @return tidak ada karena bertipe void
      */
-    protected void isiLantaiKosong() {
+    private void isiLantaiKosong() {
         for (int i = 0; i < this.papan.length; i++) {
             for (int j = 0; j < this.papan.length; j++) {
                 this.papan[i][j] = "O";
@@ -57,7 +58,43 @@ public class Lantai extends Kotak {
         }
     }
 
-    
+    /**
+     * Method untuk mengisi lantai, bila "o" kosong dan "x" sudah terisi
+     *
+     * @param tidak ada
+     * @return tidak ada karena bertipe void
+     */
+    private void isiLantaiIsi1() {
+        for (int i = 0; i < 3; i++) {
+            this.papan[i][3] = "X";
+            this.papan[i][5] = "X";
+        }
+        this.papan[1][1] = "X";
+        for (int j = 0; j < 9; j++) {
+            if (j != 0 && j != 4 && j != 7 && j != 8) {
+                this.papan[2][j] = "X";
+            }
+        }
+        for (int k = 3; k < 6; k++) {
+            this.papan[k][1] = "X";
+        }
+        this.papan[5][2] = "X";
+        this.papan[3][6] = "X";
+        this.papan[3][7] = "X";
+        for (int u = 5; u < 8; u++) {
+            this.papan[5][u] = "X";
+        }
+        this.papan[6][5] = "X";
+        this.papan[6][7] = "X";
+        this.papan[7][7] = "X";
+        this.papan[7][8] = "X";
+        for (int o = 1; o < 4; o++) {
+            this.papan[7][o] = "X";
+        }
+        this.papan[8][0] = "X";
+        this.papan[8][5] = "X";
+    }
+
     /**
      * Method getter dari papan permainan dan bertipe array 2 dimensi
      *
