@@ -57,7 +57,6 @@ public class Lantai extends Kotak {
         }
     }
 
-    
     /**
      * Method getter dari papan permainan dan bertipe array 2 dimensi
      *
