@@ -30,9 +30,7 @@ public class Tester {
             int direction=sc.nextInt();
             a.updateLantai(me, direction);
             k.updateLantai(me, direction);  
-            System.out.println("Pakai Sepatu? 1. Api 2. Air 3. Tidak :");
-            me.pasanglepasSepatu(sc.nextInt());
-            
         }    
+        System.out.println(k.isFinished(me));
     }
 }

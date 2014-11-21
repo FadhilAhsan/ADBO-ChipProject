@@ -12,7 +12,7 @@ import Chip.Kotak.Addition;
  * @author Fadhil Ahsan(2013730003), Cheria (2013730002), Janice Sella
  * (2013730071).
  */
-public abstract class Sepatu {
+public abstract class Sepatu  {
 
     public abstract boolean ubahStatus(int masukan); //method untuk mengecek sepatu Api atau sepatu Air yang dimasukan
 

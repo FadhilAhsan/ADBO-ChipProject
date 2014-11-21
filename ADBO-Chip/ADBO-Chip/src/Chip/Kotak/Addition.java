@@ -64,6 +64,7 @@ public class Addition extends Kotak {
         this.isiIC();
         this.isiFire();
         this.isiWater();
+        this.isiSepatu();
     }
 
     /**
@@ -104,6 +105,11 @@ public class Addition extends Kotak {
         this.banyakIC = count;    
     }
 
+    private void isiSepatu()
+    {
+        this.copyPapan[7][0]="SF";
+        this.copyPapan[8][8]="SA";
+    }
     /**
      * Method untuk memperoleh papan permainan dalam bentuk array 2 dimensi
      * @param tidak ada

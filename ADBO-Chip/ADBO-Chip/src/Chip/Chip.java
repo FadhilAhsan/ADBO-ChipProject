@@ -92,6 +92,15 @@ public class Chip {
                     bool = false;
                 }
             }
+            if(this.papanPermainan[simpan][col].equals("SF"))
+            {
+                this.pasanglepasSepatu(1);
+            } else if(this.papanPermainan[simpan][col].equals("SA"))
+            {
+                this.pasanglepasSepatu(2);
+            } else{
+                
+            }
 
         } else if (direction == 8) {
             int simpan = this.getRow() - 1;
@@ -106,6 +115,15 @@ public class Chip {
                     bool = false;
                 }
             }
+            if(this.papanPermainan[simpan][col].equals("SF"))
+            {
+                this.pasanglepasSepatu(1);
+            } else if(this.papanPermainan[simpan][col].equals("SA"))
+            {
+                this.pasanglepasSepatu(2);
+            } else{
+                
+            }
 
         } else if (direction == 4) {
             int simpan = this.getCol() - 1;
@@ -118,6 +136,15 @@ public class Chip {
                     bool = false;
                 }
             }
+            if(this.papanPermainan[simpan][col].equals("SF"))
+            {
+                this.pasanglepasSepatu(1);
+            } else if(this.papanPermainan[simpan][col].equals("SA"))
+            {
+                this.pasanglepasSepatu(2);
+            } else{
+                
+            }
 
         } else {
             int simpan = this.getCol() + 1;
@@ -129,6 +156,15 @@ public class Chip {
                 } else if (papanPermainan[row][simpan].equals("X")) {
                     bool = false;
                 }
+            }
+            if(this.papanPermainan[simpan][col].equals("SF"))
+            {
+                this.pasanglepasSepatu(1);
+            } else if(this.papanPermainan[simpan][col].equals("SA"))
+            {
+                this.pasanglepasSepatu(2);
+            } else{
+                
             }
         }
         return bool;
