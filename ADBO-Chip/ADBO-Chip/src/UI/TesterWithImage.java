@@ -90,7 +90,11 @@ public class TesterWithImage extends JPanel {
             }
         });
     }
-
+/**
+ * Method untuk menangani event ketika keyboard dipressed
+ * @param evt berubah kejadian event yang terjadi
+ * @return tidak ada nilai kembalian karena bertipe void
+ */
     private void formKeyPressed(java.awt.event.KeyEvent evt) {
         switch (evt.getKeyCode()) {
             case KeyEvent.VK_LEFT:
@@ -108,6 +112,11 @@ public class TesterWithImage extends JPanel {
         }
     }
 
+    /**
+     * Method untuk menangani JPanel ketika terjadi pergerakan ke kekiri dengan gambar
+     * @param tidak ada
+     * @return tidak ada karena bertipe void
+     */
     public void left() {
         a.updateLantai(me, 4);
         l.updateLantai(me, 4);
@@ -123,6 +132,11 @@ public class TesterWithImage extends JPanel {
         }
     }
 
+    /**
+     * Method untuk menangani JPanel ketika terjadi pergerakan ke kanan dengan gambar
+     * @param tidak ada
+     * @return tidak ada karena bertipe void
+     */
     public void right() {
         a.updateLantai(me, 6);
         l.updateLantai(me, 6);
@@ -138,6 +152,11 @@ public class TesterWithImage extends JPanel {
         }
     }
 
+    /**
+     * Method untuk menangani JPanel ketika terjadi pergerakan ke bawah dengan gambar
+     * @param tidak ada
+     * @return tidak ada karena bertipe void
+     */
     public void down() {
         a.updateLantai(me, 2);
         l.updateLantai(me, 2);
@@ -153,6 +172,11 @@ public class TesterWithImage extends JPanel {
         }
     }
 
+    /**
+     * Method untuk menangani JPanel ketika terjadi pergerakan ke atas dengan gambar
+     * @param tidak ada
+     * @return tidak ada karena bertipe void
+     */
     public void up() {
         a.updateLantai(me, 8);
         l.updateLantai(me, 8);
@@ -168,6 +192,11 @@ public class TesterWithImage extends JPanel {
         }
     }
 
+    /**
+     * Method untuk mengggambar dalam JPanel
+     * @param g berupa graphics
+     * @return tidak ada karena bertipe void
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

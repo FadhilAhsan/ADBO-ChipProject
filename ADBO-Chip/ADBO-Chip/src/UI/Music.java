@@ -9,7 +9,7 @@ package UI;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.net.URL;
-import javazoom.jl.player.Player;
+import javazoom.jlme.util.Player;
 
 /**
  * Kelas music bagi papan permainan 
@@ -17,9 +17,14 @@ import javazoom.jl.player.Player;
  * (2013730071).
  */
 public class Music {
-   private static String filename;
-   private static Player player;
+   private static String filename; //attribut berupa namaFile dalam String
+   private static Player player; // attribut player untuk menjalankan sound
 
+   /**
+    * Method untuk menjalankan sound
+    * @param tidak ada
+    * @return tidak ada karena bertipe void
+    */
 public static void play() {
         try {
             URL url;
@@ -46,8 +51,13 @@ public static void play() {
 
     }
 
+/**
+ * Method untuk menghentikan sound
+ * @param tidak ada
+ * @return tidak ada karena bertipe void
+ */
     public void close()
        {
-           player.close();
+           player.stop();
        }
 }

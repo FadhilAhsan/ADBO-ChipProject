@@ -44,7 +44,7 @@ public class Lantai extends Kotak {
 
     /**
      * Method untuk mencetak papah dengan lantai kosong yang diberi tanda string
-     * "o::
+     * "o"
      *
      * @param tidak ada
      * @return tidak ada karena bertipe void
