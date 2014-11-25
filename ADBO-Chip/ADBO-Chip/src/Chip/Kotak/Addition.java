@@ -60,11 +60,11 @@ public class Addition extends Kotak {
     @Override
     public void isi() {
         this.isiFinish1();
-        this.isiBarrier1();
-        this.isiIC();
+        this.isiBarrier1(); 
         this.isiFire();
         this.isiWater();
         this.isiSepatu();
+        this.isiIC();
     }
 
     /**
@@ -73,7 +73,7 @@ public class Addition extends Kotak {
      * @return tidak ada
      */
     private void isiFinish1() {
-        this.copyPapan[0][4] = "W";
+        this.copyPapan[1][5] = "W";
     }
 
     /**
@@ -82,7 +82,7 @@ public class Addition extends Kotak {
      * @return tidak ada
      */
     private void isiBarrier1() {
-        this.copyPapan[1][4] = "=";
+        this.copyPapan[2][5] = "=";
     }
 
     /**
@@ -92,14 +92,21 @@ public class Addition extends Kotak {
      */
     private void isiIC() {
         int count = 0;
+        this.copyPapan[9][2]="C";
+        this.copyPapan[2][7]="C";
+        this.copyPapan[3][9]="C";
+        count=3;
         for (int i = 0; i < this.banyakIC; i++) {
             Random randrow = new Random();
             Random randcol = new Random();
-            int row = randrow.nextInt(8);
-            int col = randcol.nextInt(8);
+            int row = randrow.nextInt(10);
+            int col = randcol.nextInt(10);
             if (this.copyPapan[row][col].equals("O")) {
-                this.copyPapan[row][col] = "C";
-                count++;
+                 if (row!=1 &&col!=3) {
+                    this.copyPapan[row][col] = "C";
+                    System.out.println(row+"=R "+col+"=C");
+                    count++; 
+                }
             }
         }
         this.banyakIC = count;    
@@ -107,8 +114,10 @@ public class Addition extends Kotak {
 
     private void isiSepatu()
     {
-        this.copyPapan[7][0]="SF";
-        this.copyPapan[8][8]="SA";
+        this.copyPapan[1][7]="SF";
+        this.copyPapan[4][3]="SF";
+        this.copyPapan[9][9]="SA";
+        this.copyPapan[7][9]="SA";
     }
     /**
      * Method untuk memperoleh papan permainan dalam bentuk array 2 dimensi
@@ -158,8 +167,8 @@ public class Addition extends Kotak {
         
         if(this.banyakIC==0 || this.check()==true)
         {
-            this.copyPapan[1][4]="O";
-            this.l.setPapan("O", 1, 4);
+            this.copyPapan[2][5]="O";
+            this.l.setPapan("O", 2, 5);
         }
     }
     
@@ -191,8 +200,8 @@ public class Addition extends Kotak {
      */
      private void isiFire()
     {
-       this.copyPapan[3][2]="F";
-       this.copyPapan[4][2]="F";
+       this.copyPapan[9][4]="F";
+       this.copyPapan[6][9]="F";
     }
      
      /**
@@ -202,7 +211,15 @@ public class Addition extends Kotak {
       */
      private void isiWater()
      {
-       this.copyPapan[3][5]="A";
-       this.copyPapan[2][7]="A";
+       this.copyPapan[6][5]="A";
+       this.copyPapan[4][8]="A";
+     }
+     
+     /**
+      * method untuk mendpatkan informasi ada berapa banyak corn yang tersedia di papan
+      * @return int yang menyatakan banyanya  corn yang ada di papan
+      */
+     public int getJumlahCorn(){
+         return this.banyakIC;
      }
 }

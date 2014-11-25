@@ -22,8 +22,8 @@ public class Chip {
     protected boolean statusSepatuAir; // attribut untuk mengecek status sepatu Air
 
     public Chip(Addition add) {
-        this.row = 0;
-        this.col = 2;
+        this.row = 1;
+        this.col = 3;
         this.add = add;
         this.papanPermainan = add.getPapan();
         this.papanPermainan[row][col] = "?";
@@ -136,17 +136,17 @@ public class Chip {
                     bool = false;
                 }
             }
-            if(this.papanPermainan[simpan][col].equals("SF"))
+            if(this.papanPermainan[row][simpan].equals("SF"))
             {
                 this.pasanglepasSepatu(1);
-            } else if(this.papanPermainan[simpan][col].equals("SA"))
+            } else if(this.papanPermainan[row][simpan].equals("SA"))
             {
                 this.pasanglepasSepatu(2);
             } else{
                 
             }
 
-        } else {
+        } else if(direction==6) {
             int simpan = this.getCol() + 1;
             if (simpan > papanPermainan.length - 1) {
                 bool = false;
@@ -157,15 +157,17 @@ public class Chip {
                     bool = false;
                 }
             }
-            if(this.papanPermainan[simpan][col].equals("SF"))
+            if(this.papanPermainan[row][simpan].equals("SF"))
             {
                 this.pasanglepasSepatu(1);
-            } else if(this.papanPermainan[simpan][col].equals("SA"))
+            } else if(this.papanPermainan[row][simpan].equals("SA"))
             {
                 this.pasanglepasSepatu(2);
             } else{
                 
             }
+        }else{
+            bool=false;
         }
         return bool;
     }
@@ -179,13 +181,9 @@ public class Chip {
         if (masukan == 1) {
             this.sep = new SepatuApi();
             this.statusSepatuApi = sep.ubahStatus(masukan);
-            System.out.println(sep.notification(this.statusSepatuApi));
-            this.statusSepatuAir = false;
         } else if (masukan == 2) {
             this.sep = new SepatuAir();
             this.statusSepatuAir = sep.ubahStatus(masukan);
-            System.out.println(sep.notification(this.statusSepatuAir));
-            this.statusSepatuApi=false;
         } else {
             this.statusSepatuApi = false;
             this.statusSepatuAir = false;

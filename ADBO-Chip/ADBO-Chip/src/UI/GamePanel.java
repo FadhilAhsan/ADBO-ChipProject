@@ -105,6 +105,7 @@ public class GamePanel extends JPanel implements KeyListener{
     public int getCornLeft(){
        return a.getJumlahCorn();
     }
+    
     @Override
     public void keyTyped(KeyEvent ke) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -268,18 +269,4 @@ public class GamePanel extends JPanel implements KeyListener{
         }
         repaint();
     }
-
-    public static void main(String[] args) throws UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(new McWinLookAndFeel());
-        JFrame frame = new JFrame();
-        frame.setContentPane(new GamePanel());
-        frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.setResizable(false);
-        Image img = Toolkit.getDefaultToolkit().getImage("Image/icon Chocobo.jpg");
-        frame.setIconImage(img);
-    }
-
-
 }

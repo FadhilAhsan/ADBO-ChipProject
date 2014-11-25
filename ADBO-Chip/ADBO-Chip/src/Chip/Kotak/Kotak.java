@@ -18,7 +18,7 @@ public abstract class Kotak {
     
     public Kotak()
     {
-        this.papan=new String[9][9]; // ukuran papan 9x9
+        this.papan=new String[11][11]; // ukuran papan 11x11
     }
     
     /**

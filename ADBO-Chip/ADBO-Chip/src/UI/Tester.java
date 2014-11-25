@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 
-package Chip.Kotak;
+package UI;
 
 import Chip.*;
+import Chip.Kotak.Addition;
+import Chip.Kotak.LantaiIsi;
 import java.util.Arrays;
 
 /**
