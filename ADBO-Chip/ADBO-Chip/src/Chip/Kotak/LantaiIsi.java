@@ -28,33 +28,48 @@ public class LantaiIsi extends Lantai {
      * @return tidak ada karena bertipe void
      */
     private void isiLantaiIsi() {
-        for (int i = 0; i < 3; i++) {
-            this.papan[i][3] = "X";
-            this.papan[i][5] = "X";
+        for (int i = 1; i < 4; i++) {
+            this.papan[i][4] = "X";
+            this.papan[i][6] = "X";
         }
-        this.papan[1][1] = "X";
-        for (int j = 0; j < 9; j++) {
-            if (j != 0 && j != 4 && j != 7 && j != 8) {
-                this.papan[2][j] = "X";
+        this.papan[2][2] = "X";
+        for (int j = 1; j < 10; j++) {
+            if (j != 1 && j != 5 && j != 8 && j != 9) {
+                this.papan[3][j] = "X";
             }
         }
-        for (int k = 3; k < 6; k++) {
-            this.papan[k][1] = "X";
+        for (int k = 4; k < 7; k++) {
+            this.papan[k][2] = "X";
         }
-        this.papan[5][2] = "X";
-        this.papan[3][6] = "X";
-        this.papan[3][7] = "X";
-        for (int u = 5; u < 8; u++) {
-            this.papan[5][u] = "X";
+        this.papan[6][3] = "X";
+        this.papan[6][4] = "X";
+        this.papan[4][7] = "X";
+        this.papan[4][9] = "X";
+        this.papan[2][8] = "X";
+        for (int u = 6; u < 8; u++) {
+            this.papan[6][u] = "X";
         }
         this.papan[6][5] = "X";
         this.papan[6][7] = "X";
+        this.papan[6][8] = "X";
         this.papan[7][7] = "X";
         this.papan[7][8] = "X";
-        for (int o = 1; o < 4; o++) {
-            this.papan[7][o] = "X";
+        for (int o = 2; o < 5; o++) {
+            this.papan[8][o] = "X";
         }
-        this.papan[8][0] = "X";
-        this.papan[8][5] = "X";
+        this.papan[8][8] = "X";
+        this.papan[8][9] = "X";
+        this.papan[9][1] = "X";
+        this.papan[9][6] = "X";
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                if (i==0 || i==10) {
+                    this.papan[i][j] = "X";
+                }
+                else if (j==0 || j==10) {
+                    this.papan[i][j] = "X";
+                }
+            }
+        }
     }
 }

@@ -14,7 +14,32 @@ import Chip.Chip;
  * (2013730071).
  */
 public class Lantai extends Kotak {
-
+    
+    /**
+     * countFire1 menandai apakah lantai yang berisi api sudah pernah di lewati atau belum 
+     */
+    private int countFire1=0;
+    
+    /**
+     * countFire2 menandai apakah lantai yang berisi api sudah pernah di lewati atau belum 
+     */
+    private int countFire2=0;
+    
+    /**
+     * countFire1 menandai apakah lantai yang berisi api sudah pernah di lewati atau belum 
+     */
+    private int countWater1=0;
+    
+    /**
+     * countFire1 menandai apakah lantai yang berisi api sudah pernah di lewati atau belum 
+     */
+    private int countWater2=0;
+    
+    /**
+     * isFinish manandai apakah chip's sudah berada di kotak finish atau belum;
+     */
+    private boolean isFinish=false;
+    
     /**
      * Method untuk mencek status lantai masih "o" (kosong) atau sudah terisi
      *
@@ -44,14 +69,14 @@ public class Lantai extends Kotak {
 
     /**
      * Method untuk mencetak papah dengan lantai kosong yang diberi tanda string
-     * "o::
+     * "O"
      *
      * @param tidak ada
      * @return tidak ada karena bertipe void
      */
     protected void isiLantaiKosong() {
         for (int i = 0; i < this.papan.length; i++) {
-            for (int j = 0; j < this.papan.length; j++) {
+            for (int j = 0; j < this.papan[0].length; j++) {
                 this.papan[i][j] = "O";
             }
         }
@@ -100,8 +125,16 @@ public class Lantai extends Kotak {
     @Override
     public void updateLantai(Chip chip, int direction) {
         this.papan[chip.getRow()][chip.getCol()] = "O";
-        chip.move(direction);
-        this.papan[chip.getRow()][chip.getCol()] = "?";
+        if (direction==0) {
+            this.papan[1][5]="W";
+        }
+        else if (direction==10) {
+            this.papan[chip.getRow()][chip.getCol()]="Z";
+        }
+        else{
+            chip.move(direction);
+            this.papan[chip.getRow()][chip.getCol()] = "?";
+        }
     }
 
     /**
@@ -111,31 +144,78 @@ public class Lantai extends Kotak {
      * @return true bile telah memenangkan game dan false bila sebaliknya
      */
     public String isFinished(Chip chip) {
-        if (this.papan[0][4].equals("?")) {
+        if (isFinish==true) {
+            this.papan[1][5]="?";
+        }
+        
+        if (this.papan[6][5].equals("Z")) {
+            this.papan[6][5]="?";
+        }
+        
+        if (this.papan[4][8].equals("Z")) {
+            this.papan[4][8]="?";
+        }
+        
+        if (this.papan[1][5].equals("?")) {
             String temp = "WIN";
+            if (isFinish==false) {
+                this.papan[1][5]="W";
+                isFinish=true;
+            }
             return temp;
 
-        } else if (this.papan[3][2].equals("?")) {
-            if (chip.getStatusApi() == false) {
-                String temp = "LOSE";
-                return temp;
+        } else if (this.papan[6][9].equals("?")) {
+             if (countFire1==0) {
+                if (chip.getStatusApi() == false) {
+                    String temp = "LOSE";
+                    return temp;
+                }
+                else{
+                    chip.pasanglepasSepatu(3);
+                    countFire1++;
+                    return "null";
+                }
             }
-        } else if (this.papan[4][2].equals("?")) {
-            if (chip.getStatusApi() == false) {
-                String temp = "LOSE";
-                return temp;
+        } else if (this.papan[9][4].equals("?")) {
+            if (countFire2==0) {
+                if (chip.getStatusApi() == false) {
+                    String temp = "LOSE";
+                    return temp;
+                }
+                else{
+                    chip.pasanglepasSepatu(3);
+                    countFire2++;
+                    return "null";
+                }
             }
-        } else if (this.papan[3][5].equals("?")) {
-            if (chip.getStatusAir() == false) {
-                String temp = "LOSE";
-                return temp;
+        } else if (this.papan[4][8].equals("?")) {
+            if (countWater1==0) {
+                if (chip.getStatusAir() == false) {
+                    String temp = "LOSE";
+                    this.papan[4][8]="Z";
+                    return temp;
+                }
+                else{
+                    chip.pasanglepasSepatu(3);
+                    countWater1++;
+                    return "null";
+                }
             }
 
-        } else if (this.papan[2][7].equals("?")) {
-            if (chip.getStatusAir() == false) {
-                String temp = "LOSE";
-                return temp;
+        } else if (this.papan[6][5].equals("?")) {
+            if (countWater2==0) {
+                if (chip.getStatusAir() == false) {
+                    String temp = "LOSE";
+                    this.papan[6][5]="Z";
+                    return temp;
+                }
+                else{
+                    chip.pasanglepasSepatu(3);
+                    countWater2++;
+                    return "null";
+                }
             }
+            
         }
         return "null";
     }
