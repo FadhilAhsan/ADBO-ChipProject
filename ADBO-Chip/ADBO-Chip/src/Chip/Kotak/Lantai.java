@@ -101,7 +101,7 @@ public class Lantai extends Kotak {
     public void updateLantai(Chip chip, int direction) {
         this.papan[chip.getRow()][chip.getCol()] = "O";
         chip.move(direction);
-        this.papan[chip.getRow()][chip.getCol()] = "?";
+        this.papan[chip.getRow()][chip.getCol()] = "?";  
     }
 
     /**
